@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Python</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="body">
+        <div class="header">
+            <h2 class="global_text">Python is everywhere and for everyone</h2>
+        </div>
+        
+        <div class="inside_body">
+            <div class="head_inside">
+               <h3 class="global_text">Проверь свои знания в Python</h3>
+            </div>
+            <div class="inside_body_image">
+                <div class="head_inside">
+                    <img src="{{ url_for('static', filename='images/python.png') }}" alt="img" width="100%" height="35%">
+                </div>
+            </div>
+            
+             
+            <div class="head_inside">
+                <a class="start_button clean_a" href="{{ url_for('test') }}"><button class="start_button_1 global_text">Пройти тест</button></a>
+                <br>
+            </div>
+            
+
+            
+        </div>
+
+    </div>
+{% endblock %}
