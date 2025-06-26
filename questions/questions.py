@@ -28,6 +28,7 @@ class Questions:
         for row in self.cursor:
             if  row[0]:
                 self.id = int(row[0]) + 1
+        return self.id - 1
         
     
     
@@ -65,5 +66,25 @@ class Questions:
             questions[count] = {"question": row[1], "answer": row[2], "a": row[3], "b": row[4], "c": row[5], "d": row[6], "e": row[7]}
             count += 1
         return questions
+    
+    
+    def get_question(self, id):
+        """функция для получения конкретного вопроса"""
+        self.create_table()
+        query = """ SELECT * FROM questions WHERE id=? """
+        self.cursor.execute(query, (id,))
+        question = {}
+        
+        for row in self.cursor:
+            question['question'] = row[1]
+            question['answer'] = row[2]
+            question['a'] = row[3]
+            question['b'] = row[4]
+            question['c'] = row[5]
+            question['d'] = row[6]
+            question['e'] = row[7]
+            
+        return question
+        
         
     
