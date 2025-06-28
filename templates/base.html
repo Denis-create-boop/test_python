@@ -7,14 +7,15 @@
     {% block title %}{% endblock %}
 </head>
 <body>
+    <div class="body">
+
+        {% block header %}
+        {% endblock %}
+
+        <div class="inside_body">
             {% block content %}
             {% endblock %}
-
-            {% block test %}
-            {% endblock %} 
-    
-    
-    {% block footer %}
-    {% endblock %}
+        </div> 
+    </div>  
 </body>
 </html>

@@ -1,9 +1,11 @@
-from questions.questions import Questions
+from databases.questions import Questions
+from databases.users import Admin
 
 
 
 def write_to_db(questions):
      """Фукция для заполнения базы данных если она пуста"""
+     create_account()
      for k, v in questions.items():
           write = Questions()
           write.add_question(question=v['question'], answer=v['answer'], a=v['a'], b=v['b'], c=v['c'], d=v['d'], e=v['e'])
@@ -567,3 +569,6 @@ questions = {1: {'question':  'что такое "int"?',
              }
 
 
+def create_account():
+     user = Admin()
+     user.change_password("admin", "password")

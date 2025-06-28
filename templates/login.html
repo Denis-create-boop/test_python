@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    <title>{{ context.title }}</title>
+{% endblock %}
+
+{% block content %}
+    {% if context.flag %}
+        <div class="head_inside">
+            <a class="clean_a form" href="{{ url_for('add_question') }}" >
+                <button class="start_button_1 global_text" 
+                        value='' 
+                        name="answer"><p>добавить вопрос</p>
+                </button>
+            </a>
+            <br>
+        </div>    
+        <div class="head_inside">
+            <a class="clean_a form" href="{{ url_for('change_question') }}" >
+                <button class="start_button_1 global_text" 
+                        value='' 
+                        name="answer"><p>изменить вопрос</p>
+                </button>
+            </a>
+            <br>
+        </div>
+        <div class="head_inside">
+            <a class="clean_a form" href="" >
+                <button class="start_button_1 global_text" 
+                        value='' 
+                        name="answer"><p>посмотреть все вопросы</p>
+                </button>
+            </a>
+            <br>
+        </div>
+        <div class="head_inside">
+            <a class="clean_a form" href="" >
+                <button class="start_button_1 global_text" 
+                        value='' 
+                        name="answer"><p>посмотреть конкретный вопрос</p>
+                </button>
+            </a>
+            <br>
+        </div>  
+        <div class="head_inside">
+            <a class="start_button clean_a" href="{{ url_for('index') }}"><button class="start_button_1 global_text">На главную</button></a>
+            <br>
+        </div>
+        
+    {% else %}
+        <div class="head_inside">
+            <form class="form" action="{{ url_for('login') }}" method="post">
+                {% if context.message %}
+                    <div class="header">
+                        <h3 class="misstake">{{ context.message }}</h3>
+                    </div>
+                {% endif %}
+                <div class="head_inside">
+                    <label class="global_text" for="login">Login:</label>
+                </div>
+                <div class="head_inside">
+                    <input type="text" id="login" name="login" placeholder="Enter your Login" required>
+                </div>
+                <div class="head_inside">
+                    <label class="global_text" for="password">Password:</label>
+                </div>
+                <div class="head_inside">
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                </div>
+                <div class="head_inside">
+                    <button class="start_button_1 global_text" type="submit"> Submit </button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

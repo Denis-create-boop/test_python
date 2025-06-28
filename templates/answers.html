@@ -1,226 +1,218 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>show misstakes</title>
+    <title>{{ context.title }}</title>
 {% endblock %}
 
-{% block content %}
-    <div class="body">
-        <div class="header">
-            <h2 class="global_text">Python is everywhere and for everyone</h2>
-        </div>
-        
-        <div class="inside_body">
-            <div class="head_inside">
-               <h3 class="global_text">{{ content.question.question }}</h3>
-            </div>
-            
-                {% if content.answer == content.question.answer %}
-                    <div class="head_inside">
-                        {% if content.question.a == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_green global_text">{{ content.question.a }}</button>
-                                <br>
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button global_text">{{ content.question.a }}</button>
-                                <br>
-                            </a>
-                            
-                        {% endif %}
 
-                    </div>
-
-                    <div class="head_inside">
-                        {% if content.question.b == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_green global_text">{{ content.question.b }}</button>
-                                <br>
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button global_text">{{ content.question.b }}</button>
-                                <br>
-                            </a>
-                            
-                        {% endif %}
-                    </div>
-
-                    <div class="head_inside">
-                        {% if content.question.c == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                               <button class="misstake_button_green global_text">{{ content.question.c }}</button>
-                                <br> 
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button global_text">{{ content.question.c }}</button>
-                                <br>
-                            </a>
-                            
-                        {% endif %}
-                    </div>
-                    {% if content.question.d %}
-                        <div class="head_inside">
-                            {% if content.question.d == content.question.answer %}
-                                <a href="#" class='start_button clean_a'>
-                                    <button class="misstake_button_green global_text">{{ content.question.d }}</button>
-                                    <br>
-                                </a>
-                                
-                            {% else %}
-                                <a href="#" class="start_button clean_a">
-                                    <button class="misstake_button global_text">{{ content.question.d }}</button>
-                                    <br>
-                                </a>
-                                
-                            {% endif %}
-                        </div>
-                        {% if content.question.e %}
-                            <div class="head_inside">
-                                {% if content.question.e == content.question.answer %}
-                                    <a href="#" class="start_button clean_a">
-                                        <button class="misstake_button_green global_text">{{ content.question.e }}</button>
-                                        <br>
-                                    </a>
-                                    
-                                {% else %}
-                                    <a href="#" class="start_button clean_a">
-                                       <button class="misstake_button global_text">{{ content.question.e }}</button>
-                                        <br> 
-                                    </a>
-                                    
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                    {% endif %}
-
-                {% else %}
-                    <div class="head_inside">
-                        {% if content.question.a == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_green global_text">{{ content.question.a }}</button>
-                                <br>  
-                            </a>
-                            
-                        {% elif content.question.a == content.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_red global_text">{{ content.question.a }}</button>
-                                <br>
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button global_text">{{ content.question.a }}</button>
-                                <br>
-                            </a>
-                            
-                        {% endif %}
-                    </div>
-
-                    <div class="head_inside">
-                        {% if content.question.b == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_green global_text">{{ content.question.b }}</button>
-                                <br>
-                            </a>
-                            
-                        {% elif content.question.b == content.answer %}
-                            <a href="#" class="start_button clean_a">
-                              <button class="misstake_button_red global_text">{{ content.question.b }}</button>
-                                <br>  
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button global_text">{{ content.question.b }}</button>
-                                <br>
-                            </a>
-                            
-                        {% endif %}
-                    </div>
-
-                    <div class="head_inside">
-                        {% if content.question.c == content.question.answer %}
-                            <a href="#" class="start_button clean_a">
-                                <button class="misstake_button_green global_text">{{ content.question.c }}</button>
-                                <br>
-                            </a>
-                            
-                        {% elif content.question.c == content.answer %}
-                            <a href="#" class="start_button clean_a">
-                               <button class="misstake_button_red global_text">{{ content.question.c }}</button>
-                                <br> 
-                            </a>
-                            
-                        {% else %}
-                            <a href="#" class="start_button clean_a">
-                               <button class="misstake_button global_text">{{ content.question.c }}</button>
-                                <br> 
-                            </a>
-                            
-                        {% endif %}
-                    </div>
-
-                    {% if content.question.d %}
-                        <div class="head_inside">
-                            {% if content.question.d == content.question.answer %}
-                                <a href="#" class="start_button clean_a">
-                                    <button class="misstake_button_green global_text">{{ content.question.d }}</button>
-                                    <br>  
-                                </a>
-                                
-                            {% elif content.question.d == content.answer %}
-                                <a href="#" class="start_button clean_a">
-                                   <button class="misstake_button_red global_text">{{ content.question.d }}</button>
-                                    <br> 
-                                </a>
-                                
-                            {% else %}
-                                <a href="#" class="start_button clean_a">
-                                   <button class="misstake_button global_text">{{ content.question.d }}</button>
-                                    <br> 
-                                </a>
-                                
-                            {% endif %}
-                        </div>
-                        {% if content.question.e %}
-                            <div class="head_inside">
-                                {% if content.question.e == content.question.answer %}
-                                    <a href="#" class="start_button clean_a">
-                                       <button class="misstake_button_green global_text">{{ content.question.e }}</button>
-                                        <br> 
-                                    </a>
-                                    
-                                {% elif content.question.e == content.answer %}
-                                    <a href="#" class="start_button clean_a">
-                                       <button class="misstake_button_red global_text">{{ content.question.e }}</button>
-                                        <br> 
-                                    </a>
-                                    
-                                {% else %}
-                                    <a href="#" class="start_button clean_a">
-                                       <button class="misstake_button global_text">{{ content.question.e }}</button>
-                                        <br> 
-                                    </a>
-                                    
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                    {% endif %}
-                {% endif %}
-            
-
-            <div class="head_inside">
-                <a class="start_button clean_a" href="{{ url_for(content.url) }}">
-                    <button class="start_button_1 global_text">{{ content.message }}</button></a>
-                <br>
-            </div>
-        </div>
-
+{% block header %}
+    <div class="header">
+        <h2 class="global_text">Python is everywhere and for everyone</h2>
     </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="head_inside">
+       <h3 class="global_text">{{ context.question.question }}</h3>
+    </div>
+    
+        {% if context.answer == context.question.answer %}
+            <div class="head_inside">
+                {% if context.question.a == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_green global_text">{{ context.question.a }}</button>
+                        <br>
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button global_text">{{ context.question.a }}</button>
+                        <br>
+                    </a>
+                    
+                {% endif %}
+            </div>
+            <div class="head_inside">
+                {% if context.question.b == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_green global_text">{{ context.question.b }}</button>
+                        <br>
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button global_text">{{ context.question.b }}</button>
+                        <br>
+                    </a>
+                    
+                {% endif %}
+            </div>
+            <div class="head_inside">
+                {% if context.question.c == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                       <button class="misstake_button_green global_text">{{ context.question.c }}</button>
+                        <br> 
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button global_text">{{ context.question.c }}</button>
+                        <br>
+                    </a>
+                    
+                {% endif %}
+            </div>
+            {% if context.question.d %}
+                <div class="head_inside">
+                    {% if context.question.d == context.question.answer %}
+                        <a href="#" class='start_button clean_a'>
+                            <button class="misstake_button_green global_text">{{ context.question.d }}</button>
+                            <br>
+                        </a>
+                        
+                    {% else %}
+                        <a href="#" class="start_button clean_a">
+                            <button class="misstake_button global_text">{{ context.question.d }}</button>
+                            <br>
+                        </a>
+                        
+                    {% endif %}
+                </div>
+                {% if context.question.e %}
+                    <div class="head_inside">
+                        {% if context.question.e == context.question.answer %}
+                            <a href="#" class="start_button clean_a">
+                                <button class="misstake_button_green global_text">{{ context.question.e }}</button>
+                                <br>
+                            </a>
+                            
+                        {% else %}
+                            <a href="#" class="start_button clean_a">
+                               <button class="misstake_button global_text">{{ context.question.e }}</button>
+                                <br> 
+                            </a>
+                            
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <div class="head_inside">
+                {% if context.question.a == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_green global_text">{{ context.question.a }}</button>
+                        <br>  
+                    </a>
+                    
+                {% elif context.question.a == context.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_red global_text">{{ context.question.a }}</button>
+                        <br>
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button global_text">{{ context.question.a }}</button>
+                        <br>
+                    </a>
+                    
+                {% endif %}
+            </div>
+            <div class="head_inside">
+                {% if context.question.b == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_green global_text">{{ context.question.b }}</button>
+                        <br>
+                    </a>
+                    
+                {% elif context.question.b == context.answer %}
+                    <a href="#" class="start_button clean_a">
+                      <button class="misstake_button_red global_text">{{ context.question.b }}</button>
+                        <br>  
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button global_text">{{ context.question.b }}</button>
+                        <br>
+                    </a>
+                    
+                {% endif %}
+            </div>
+            <div class="head_inside">
+                {% if context.question.c == context.question.answer %}
+                    <a href="#" class="start_button clean_a">
+                        <button class="misstake_button_green global_text">{{ context.question.c }}</button>
+                        <br>
+                    </a>
+                    
+                {% elif context.question.c == context.answer %}
+                    <a href="#" class="start_button clean_a">
+                       <button class="misstake_button_red global_text">{{ context.question.c }}</button>
+                        <br> 
+                    </a>
+                    
+                {% else %}
+                    <a href="#" class="start_button clean_a">
+                       <button class="misstake_button global_text">{{ context.question.c }}</button>
+                        <br> 
+                    </a>
+                    
+                {% endif %}
+            </div>
+            {% if context.question.d %}
+                <div class="head_inside">
+                    {% if context.question.d == context.question.answer %}
+                        <a href="#" class="start_button clean_a">
+                            <button class="misstake_button_green global_text">{{ context.question.d }}</button>
+                            <br>  
+                        </a>
+                        
+                    {% elif context.question.d == context.answer %}
+                        <a href="#" class="start_button clean_a">
+                           <button class="misstake_button_red global_text">{{ context.question.d }}</button>
+                            <br> 
+                        </a>
+                        
+                    {% else %}
+                        <a href="#" class="start_button clean_a">
+                           <button class="misstake_button global_text">{{ context.question.d }}</button>
+                            <br> 
+                        </a>
+                        
+                    {% endif %}
+                </div>
+                {% if context.question.e %}
+                    <div class="head_inside">
+                        {% if context.question.e == context.question.answer %}
+                            <a href="#" class="start_button clean_a">
+                               <button class="misstake_button_green global_text">{{ context.question.e }}</button>
+                                <br> 
+                            </a>
+                            
+                        {% elif context.question.e == context.answer %}
+                            <a href="#" class="start_button clean_a">
+                               <button class="misstake_button_red global_text">{{ context.question.e }}</button>
+                                <br> 
+                            </a>
+                            
+                        {% else %}
+                            <a href="#" class="start_button clean_a">
+                               <button class="misstake_button global_text">{{ context.question.e }}</button>
+                                <br> 
+                            </a>
+                            
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    
+    <div class="head_inside">
+        <a class="start_button clean_a" href="{{ url_for(context.url) }}">
+            <button class="start_button_1 global_text">{{ context.message }}</button></a>
+        <br>
+    </div>
+
 {% endblock %}

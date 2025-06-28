@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ context.title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    {% if context.flag %}
+    {% else %}
+    <div class="form">
+        <form action="{{ url_for('add_question') }}" method="post">
+            <div class="head_inside">
+                <label class="global_text label" for="question">Введите вопрос:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="question" name="question" required>
+            </div>
+            <div class="head_inside">
+                <label class="global_text label" for="option_a">Введите вариант А:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="option_a" name="option_a" required>
+            </div>
+            <div class="head_inside">
+                <label class="global_text label" for="option_b">Введите вариант В:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="option_b" name="option_b" required>
+            </div>
+            <div class="head_inside">
+                <label class="global_text label" for="option_c">Введите вариант С:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="option_c" name="option_c" required>
+            </div>
+            <div class="head_inside">
+                <label class="global_text label" for="option_d">Введите вариант D:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="option_d" name="option_d">
+            </div>
+            <div class="head_inside">
+                <label class="global_text label" for="option_e">Введите вариант E:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="text" id="option_e" name="option_e">
+            </div>
+            <div class="head_inside">
+                <a class="start_button clean_a" href="{{ url_for('add_question') }}">
+                    <button class="start_button_1 global_text" type="submit">Добавить</button></a>
+                <br>
+            </div> 
+        </form>
+        <div class="head_inside">
+            <a class="start_button clean_a" href="{{ url_for('login') }}"><button class="start_button_1 global_text">Назад</button></a>
+            <br>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

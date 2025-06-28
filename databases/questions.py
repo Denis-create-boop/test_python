@@ -12,7 +12,7 @@ class Questions:
     
     def create_table(self):
         """функция для создания таблицы"""
-        with sqlite3.connect('./questions/questions.db') as db:
+        with sqlite3.connect('./databases/questions.db') as db:
             self.db = db
             self.cursor = db.cursor()
             query = """ CREATE TABLE IF NOT EXISTS questions (id INTEGER, question TEXT, answer TEXT, a TEXT, b TEXT, c TEXT, d TEXT, e TEXT) """
@@ -76,6 +76,7 @@ class Questions:
         question = {}
         
         for row in self.cursor:
+            question['id'] = row[0]
             question['question'] = row[1]
             question['answer'] = row[2]
             question['a'] = row[3]

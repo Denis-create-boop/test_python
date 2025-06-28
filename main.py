@@ -1,19 +1,28 @@
-from flask import Flask, render_template, request
-from questions.start_questions import *
-from questions.questions import Questions
+from admin import *
+from databases.start_questions import *
 import random
 
-app = Flask(__name__)
+
     
 QUESTIONS = []
 REPEAT_QUESTIONS = []
 ANSWERS_LIST = []
-    
+
     
     
 @app.route('/')
-def index():
-    return render_template('index.html')
+def index(flag=False):
+    if flag:
+        context = {
+            'title': 'Python', 
+            'flag': True,
+        }
+    else:
+        context = {
+            'title': 'Python', 
+            'flag': False,
+        }
+    return render_template('index.html', context=context)
 
 
 @app.route('/test')
@@ -26,11 +35,12 @@ def test():
         if number not in QUESTIONS:
             QUESTIONS.append(number)
     REPEAT_QUESTIONS = QUESTIONS
-    content = {
+    context = {
+        "title": "test",
         'url': 'test_quest'
     }
     
-    return render_template('test.html', content=content)
+    return render_template('test.html', context=context)
     
     
 @app.route('/test_quest', methods=['GET', "POST"])
@@ -46,7 +56,7 @@ def test_quest():
             else:
                 QUESTIONS = QUESTIONS[1:]
                 
-            content = {
+            context = {
                 "question": one_question,
             }
 
@@ -54,11 +64,11 @@ def test_quest():
             id = QUESTIONS[0]
             one_question = Questions().get_question(id=id)
             QUESTIONS = QUESTIONS[1:]
-            content = {
+            context = {
                 "question": one_question,
             }
         
-        return render_template('test.html', content=content)
+        return render_template('test.html', context=context)
     else:
         ANSWERS_LIST.append(request.form['answer'])
         answers = 0
@@ -86,12 +96,13 @@ def test_quest():
         else:
             result = "Поздровляем тест сдан"
             
-        content = {
+        context = {
+            "title": "result",
             "result": result,
             "misstakes": misstakes,
         }
         
-        return render_template('result.html', content=content)
+        return render_template('result.html', context=context)
 
 
 @app.route('/show_misstakes')
@@ -107,15 +118,18 @@ def show_misstakes():
     else:
         url = 'index'
         message = "На главную"
-    content = {
+    context = {
+        "title": "show misstakes",
         "question": question,
         "answer": answer,
         "url": url,
         "message": message
     }
 
-    return render_template('answers.html', content=content)
+    return render_template('answers.html', context=context)
 
+
+    
     
 if __name__ == '__main__':
     id = Questions().get_last_id()

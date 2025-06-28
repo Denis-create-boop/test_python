@@ -104,3 +104,20 @@ body {
     justify-content: center;
     background-color: rgb(8, 27, 27);
 }
+
+.misstake {
+    color: red;
+}
+
+.label {
+    display: block;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.input {
+    display: block;
+    width: 95%;
+    height: 30px;
+    margin-bottom: 1%;
+}
