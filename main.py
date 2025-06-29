@@ -10,9 +10,9 @@ ANSWERS_LIST = []
 
     
     
-@app.route('/')
-def index(flag=False):
-    if flag:
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
         context = {
             'title': 'Python', 
             'flag': True,

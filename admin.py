@@ -145,3 +145,33 @@ def change_question():
         
         return render_template("info.html", context=context)
     
+    
+@app.route('/show_all_questions', methods=["GET", "POST"])
+def show_all_questions():
+    global IF_AUTENTICATED
+    if IF_AUTENTICATED:
+        if request.method == 'POST':
+            question = QUESTIONS.get_question(id=request.form['id'])
+            context = {
+                "questions": question,
+                "title": "Просмотр вопроса",
+            }
+            
+            return render_template('questions.html', context=context)
+        
+        else:
+            questions = QUESTIONS.get_all_question()
+            context = {
+                "questions": questions,
+                "title": "Все вопросы",
+            }
+        return render_template('questions.html', context=context)
+    
+    else:
+        context = {
+            "title": "ошибка входа",
+            "message": "Вы не авторизованы, пожалуйста войдите в аккаунт",
+            "flag": False,
+        }
+        
+        return render_template("info.html", context=context)

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ context.title }}</title>
+{% endblock %}
+
+{% block content %}
+    
+    {% for question in context.questions.values() %}
+        <div class="head_inside">
+            <button class="id">
+                <p>{{ question.id }}</p>
+            </button>
+            
+            <button class="button_question global_text">
+                <p>{{ question.question }}
+             </p>
+            </button>
+        </div>   
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>A: {{ question.a }}
+             </p>
+            </button>
+        </div>
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>B: {{ question.b }}
+             </p>
+            </button>
+        </div>
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>C: {{ question.c }}
+             </p>
+            </button>
+        </div>
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>D: {{ question.d }}
+             </p>
+            </button>
+        </div>
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>E: {{ question.e }}
+             </p>
+            </button>
+        </div>
+        <div class="head_inside">
+            <button class="button_info global_text">
+                <p>answer: {{ question.answer }}
+             </p>
+            </button>
+        </div>
+        <hr>
+        {% endfor %}
+    
+{% endblock %}

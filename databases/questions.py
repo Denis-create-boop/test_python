@@ -63,7 +63,14 @@ class Questions:
         questions = {}
         count = 1
         for row in self.cursor:
-            questions[count] = {"question": row[1], "answer": row[2], "a": row[3], "b": row[4], "c": row[5], "d": row[6], "e": row[7]}
+            questions[count] = {"id": row[0], 
+                         "question": row[1], 
+                         "answer": row[2], 
+                         "a": row[3], 
+                         "b": row[4], 
+                         "c": row[5], 
+                         "d": row[6], 
+                         "e": row[7]}
             count += 1
         return questions
     
