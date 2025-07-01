@@ -152,6 +152,7 @@ def show_all_questions():
     if IF_AUTENTICATED:
         if request.method == 'POST':
             question = QUESTIONS.get_question(id=request.form['id'])
+            
             context = {
                 "questions": question,
                 "title": "Просмотр вопроса",
@@ -166,6 +167,52 @@ def show_all_questions():
                 "title": "Все вопросы",
             }
         return render_template('questions.html', context=context)
+    
+    else:
+        context = {
+            "title": "ошибка входа",
+            "message": "Вы не авторизованы, пожалуйста войдите в аккаунт",
+            "flag": False,
+        }
+        
+        return render_template("info.html", context=context)
+    
+    
+@app.route("/show_question", methods=["GET", "POST"])
+def show_question():
+    global IF_AUTENTICATED
+    if IF_AUTENTICATED:
+        if request.method == "POST":
+            question = Questions().get_question(id=request.form["question_id"])
+            option = ''
+            if question['a'] == question['answer']:
+                option = 'A'
+                
+            elif question['b'] == question['answer']:
+                option = 'B'
+                
+            elif question['c'] == question['answer']:
+                option = 'C'
+                
+            elif question['d'] == question['answer']:
+                option = 'D'
+                
+            elif question['e'] == question['answer']:
+                option = 'E'
+            context = {
+                "title": "просмотр вопроса",
+                "flag": True,
+                "question": question,
+                "option": option,
+            }
+            return render_template("show_question.html", context=context)
+        
+        else:
+            context = {
+                "title": "просмотр вопроса",
+                "flag": False,
+            }
+            return render_template("show_question.html", context=context)
     
     else:
         context = {

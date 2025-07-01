@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ context.title }}</title>
+{% endblock %}
+
+{% block content %}
+    {% if context.flag %}
+    <div class="head_inside">
+        <div class="form">
+            <div class="head_inside">
+                    <label class="global_text label" for="question">Вопрос:</label>
+            </div>
+            <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question">
+                        <p>{{ context.question.question }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_a">Вариант A:</label>
+            </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_a">
+                        <p>{{ context.question.a }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_b">Вариант B:</label>
+                </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_b">
+                        <p>{{ context.question.b }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_c">Вариант C:</label>
+                </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_c">
+                        <p>{{ context.question.c }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_d">Вариант D:</label>
+                </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_d">
+                        <p>{{ context.question.d }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_e">Вариант E:</label>
+                </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_e">
+                        <p>{{ context.question.e }}</p>
+                </button>
+            </a>
+            <div class="head_inside">
+                    <label class="global_text label" for="question_answer">Ответ:</label>
+                </div>
+             <a class="clean_a" href="#" >
+                <button class="start_button_1 global_text" id="question_answer">
+                        <p>Вариант {{ context.option }}: {{ context.question.answer }}</p>
+                </button>
+            </a>
+        
+            <div class="head_inside">
+                <a class="start_button clean_a" href="{{ url_for('login') }}"><button class="start_button_1 global_text">В кабинет</button></a>
+                <br>
+            </div>
+            <div class="head_inside">
+                <a class="start_button clean_a" href="{{ url_for('index') }}"><button class="start_button_1 global_text">На главную</button></a>
+                <br>
+            </div>
+        </div>
+    </div>
+        
+    {% else %}
+    <div class="form">
+        <form action="" method="post">
+            <div class="head_inside">
+                <label class="global_text label" for="question_id">Введите id вопроса который хотите посмотреть:</label>
+            </div>
+            <div class="head_inside">
+                <input class="input start_button_1 global_text" type="number" id="question_id" name="question_id" required>
+            </div>
+            <div class="head_inside">
+                <a class="start_button clean_a" href="{{ url_for('change_question') }}">
+                    <button class="start_button_1 global_text" type="submit">Найти вопрос</button></a>
+                <br>
+            </div> 
+        </form>
+        <div class="head_inside">
+            <a class="start_button clean_a" href="{{ url_for('login') }}"><button class="start_button_1 global_text">Назад</button></a>
+            <br>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
